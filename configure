@@ -1,0 +1,17 @@
+#!/bin/sh 
+
+LANG=api/java/lang
+IO=api/java/io
+MACHINE=api/machine
+TIME=api/time
+
+TARGET=7
+SOURCE=7
+
+# Compile bootstrap java base api
+javac  -target $TARGET -source $SOURCE -bootclasspath api $LANG/Object.java $LANG/Byte.java $LANG/String.java \
+     $LANG/Character.java $LANG/Short.java $LANG/Long.java $LANG/Float.java $LANG/Double.java $LANG/Boolean.java \
+     $LANG/Integer.java $LANG/StringBuilder.java
+javac  -target $TARGET -source $SOURCE -bootclasspath api $IO/OutputStream.java $IO/PrintStream.java
+javac -target $TARGET -source $SOURCE -bootclasspath api Example.java
+
